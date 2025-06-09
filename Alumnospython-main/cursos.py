@@ -5,10 +5,7 @@ def agregar_curso(codigo, nombre):
         if c['codigo'] == codigo:
             print("Error: Ya existe un curso con ese código.")
             return
-    curso = {
-        'codigo': codigo,
-        'nombre': nombre
-    }
+    curso = {'codigo': codigo, 'nombre': nombre}
     cursos.append(curso)
     print("Curso agregado correctamente.")
 
@@ -24,6 +21,11 @@ def consultar_cursos():
     return cursos
 
 def curso_existe(codigo):
+    for c in cursos:
+        if c['codigo'] == codigo:
+            return True
+    return False
+
     for c in cursos:
         if c['codigo'] == codigo:
             return True
